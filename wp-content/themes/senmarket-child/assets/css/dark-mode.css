@@ -1,0 +1,41 @@
+/* ═══════════════════════════════════════════
+   DARK MODE — SENMARKET
+═══════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --color-primary: #3B82F6;
+  --color-secondary: #38BDF8;
+  --color-accent: #FBBF24;
+  --color-success: #22C55E;
+  --color-warning: #FBBF24;
+  --color-error: #EF4444;
+  --color-surface: #1E293B;
+  --color-surface-muted: #111827;
+  --color-border: #334155;
+  --color-text: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-background: #0F172A;
+
+  /* Backward compatibility aliases */
+  --color-gold: var(--color-accent);
+  --color-gold-dark: #E59D08;
+  --color-gold-light: #FCD34D;
+  --color-night: #0F172A;
+  --color-ocean: #38BDF8;
+  --color-terracotta: #EF4444;
+
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-card: #1E293B;
+  --bg-header: #111827;
+  --bg-footer: #0B1120;
+  --bg-input: #1E293B;
+  --bg-modal: rgba(15, 23, 42, 0.92);
+  --bg-overlay: rgba(15, 23, 42, 0.75);
+
+  --border-color: #334155;
+  --border-focus: #3B82F6;
+  --shadow-sm: 0 12px 36px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 18px 48px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.45);
+}

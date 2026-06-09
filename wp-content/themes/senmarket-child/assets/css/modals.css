@@ -1,0 +1,351 @@
+/* ═══════════════════════════════════════════
+   MODALES SENMARKET
+   ═══════════════════════════════════════════ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-modal);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-overlay.is-open {
+  pointer-events: auto;
+  display: flex;
+}
+
+.modal-overlay.is-visible .modal-box {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.modal-box {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: var(--border-radius-full);
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: var(--color-error);
+  color: white;
+  transform: rotate(90deg);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ─── Modale Quick View Produit ─── */
+.modal-quickview .modal-box {
+  max-width: 780px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 32px;
+}
+
+.modal-quickview .modal-img {
+  border-radius: var(--border-radius-md);
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.modal-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-product-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.modal-product-info .modal-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.modal-product-info p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-product-info .btn-primary,
+.modal-product-info .btn-cart {
+  width: 100%;
+  min-height: 46px;
+}
+
+/* ─── Modale Connexion / Inscription ─── */
+.modal-auth .modal-box {
+  max-width: 460px;
+  padding: 36px 30px;
+}
+
+.modal-auth .modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.modal-auth .modal-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.modal-auth .tab-switcher {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.modal-auth .tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  border-radius: calc(var(--border-radius-md) - 4px);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.modal-auth .tab-btn.active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Role Selector Grid */
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: var(--bg-secondary);
+  padding: 6px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  margin-bottom: 24px;
+}
+
+.role-card {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+}
+
+.role-card input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.role-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: calc(var(--border-radius-md) - 4px);
+  background: var(--bg-card);
+  transition: all var(--transition-fast);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.role-card-content i {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.role-card input:checked + .role-card-content {
+  border-color: var(--color-primary);
+  background: rgba(37, 99, 235, 0.05);
+  color: var(--color-primary);
+}
+
+.role-card input:checked + .role-card-content i {
+  color: var(--color-primary);
+}
+
+/* Custom AJAX Auth Forms */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-group label i {
+  color: var(--text-muted);
+}
+
+.form-group input {
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.form-row-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.remember-me input {
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  margin: 0;
+}
+
+.lost-pass-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.lost-pass-link:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+.btn-submit {
+  width: 100%;
+  height: 48px;
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-spinner {
+  display: inline-flex;
+  animation: spinner-spin 1s linear infinite;
+}
+
+@keyframes spinner-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive modales ─── */
+@media (max-width: 640px) {
+  .modal-box {
+    padding: 30px 20px;
+  }
+  .modal-quickview .modal-box {
+    grid-template-columns: 1fr;
+    max-height: 95vh;
+  }
+  .form-row-double {
+    grid-template-columns: 1fr;
+  }
+}
