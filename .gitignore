@@ -1,0 +1,26 @@
+# WordPress
+wp-config.php
+.env
+.env.*
+!.env.example
+
+# Uploads utilisateurs
+wp-content/uploads/
+
+# Cache
+wp-content/cache/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Logs
+wp-content/debug.log
+*.log
+
+# Thème — node_modules si usage npm/sass
+wp-content/themes/senmarket-child/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+
